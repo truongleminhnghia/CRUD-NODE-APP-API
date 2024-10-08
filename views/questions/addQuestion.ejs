@@ -1,0 +1,49 @@
+<div>
+  <form action="/addQuestion" method="POST">
+    <div className="row form-group mb-4">
+      <div className="col">
+        <label for="text">Question Text</label>
+        <input
+          type="text"
+          className="form-control"
+          id="text"
+          name="text"
+          placeholder="Enter the question"
+          required
+        />
+      </div>
+    </div>
+
+    <div className="row form-group mb-4">
+      <div className="col">
+        <label for="option1">Option 1</label>
+        <input
+          type="text"
+          className="form-control"
+          id="option1"
+          name="option[]"
+          placeholder="Enter option 1"
+          required
+        />
+      </div>
+    </div>
+
+    <div className="form-group mb-4">
+      <label for="correctAnswer">Correct Answer(s)</label>
+      <input
+        type="text"
+        className="form-control"
+        id="correctAnswer"
+        name="correctAnswer"
+        placeholder="Enter the correct answer(s)"
+        required
+      />
+    </div>
+
+    <div className="form-group mb-4">
+      <button type="submit" className="btn btn-primary">
+        Add Question
+      </button>
+    </div>
+  </form>
+</div>;

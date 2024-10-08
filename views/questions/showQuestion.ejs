@@ -1,1 +1,61 @@
-<a href="/addQuestion" class="btn btn-sm btn-outline-secondary">New Question</a>
+<div>
+  <a href="/addQuestion" class="btn btn-sm btn-outline-secondary"
+    >New Question</a
+  >
+
+  <h1 class="text-center"><%= description %></h1>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">STT</th>
+        <th scope="col">Câu hỏi</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% questions.forEach((question, index) => { %>
+      <tr>
+        <td><%= index + 1 %></td>
+        <td><%= question.text %></td>
+        <td>
+          <a
+            class="btn btn-primary"
+            href="/question/<%= question._id %>"
+            role="button"
+            >view</a
+          >
+          <a class="btn btn-primary btn-warning" href="/question/<%= question._id %>" role="button">edit</a>
+          <form
+            action="<%= question._id %>"
+            method="DELETE"
+            style="display: inline"
+            id="deleteForm"
+          >
+            <input type="hidden" name="_method" value="DELETE" />
+            <button
+              type="button"
+              class="btn btn-danger"
+              onclick="confirmDelete()"
+            >
+              Delete
+            </button>
+          </form>
+        </td>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+
+<script>
+  function confirmDelete() {
+    // Hiển thị thông báo xác nhận
+    const confirmation = confirm(
+      "Are you sure you want to delete this question?"
+    );
+    if (confirmation) {
+      // Nếu người dùng chọn "Yes", gửi form
+      document.getElementById("deleteForm").submit();
+    }
+  }
+</script>

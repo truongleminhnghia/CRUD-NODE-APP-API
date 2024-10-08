@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const headerController = require('../../controllers/mvc/headerController');
+const questionController = require('../../controllers/mvc/questionController');
 /**
  * GET /
  * 
