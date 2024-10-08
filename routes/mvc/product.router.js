@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const mainController = require('../controllers/mvc/maincontroller');
+const mainController = require('../../controllers/mvc/productcontroller');
 
 /**
  * GET /

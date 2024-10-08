@@ -5,8 +5,9 @@ const express = require("express");
 const mongoose = require("mongoose");
 const expressLayout = require('express-ejs-layouts')
 const productRouter = require('./routes/api/product.route')
-const productMvcRouter = require('./routes/mvc/product.route');
-const mainRoute = require('./routes/main.router')
+const productMvcRouter = require('./routes/mvc/product.router');
+const mainRoute = require('./routes/mvc/product.router');
+const headerRoute = require('./routes/mvc/header.router')
 const app = express();
 const connectDB = require('./configs/database');
 
@@ -37,6 +38,7 @@ app.set('view engine', 'ejs');
 
 app.use('/', productMvcRouter)
 app.use('/', mainRoute)
+app.use('/', headerRoute)
 
 app.get('*', (req, res) => {
     res.status(404).render('404');
